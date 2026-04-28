@@ -59,6 +59,7 @@ body {
 }
 
 .screen {
+  position: relative;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -83,8 +84,72 @@ body {
 }
 
 .hero {
+  position: relative;
+  z-index: 1;
   text-align: center;
   width: 100%;
+}
+
+.animal-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.animal-float {
+  position: absolute;
+  font-size: clamp(1.6rem, 5vw, 2.7rem);
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.28));
+  opacity: 0.85;
+  animation: floatAnimal 8s ease-in-out infinite;
+}
+
+.animal-float--1 {
+  top: 8%;
+  left: 8%;
+  animation-delay: 0.2s;
+}
+
+.animal-float--2 {
+  top: 20%;
+  right: 10%;
+  animation-delay: 1.3s;
+}
+
+.animal-float--3 {
+  top: 48%;
+  left: 5%;
+  animation-delay: 0.8s;
+}
+
+.animal-float--4 {
+  top: 56%;
+  right: 7%;
+  animation-delay: 2s;
+}
+
+.animal-float--5 {
+  bottom: 12%;
+  left: 20%;
+  animation-delay: 1.7s;
+}
+
+.animal-float--6 {
+  bottom: 8%;
+  right: 20%;
+  animation-delay: 2.4s;
+}
+
+@keyframes floatAnimal {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg) scale(1.08);
+  }
 }
 
 .category-badge {
@@ -175,6 +240,23 @@ body {
 .game-header {
   text-align: center;
   width: 100%;
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn--home {
+  width: auto;
+  margin-top: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
 }
 
 .game-title {

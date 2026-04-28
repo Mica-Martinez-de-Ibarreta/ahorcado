@@ -13,6 +13,14 @@
   <div class="app">
     <!-- 1. Bienvenida -->
     <section id="screen-welcome" class="screen screen--active" aria-hidden="false">
+      <div class="animal-bg" aria-hidden="true">
+        <span class="animal-float animal-float--1">🐶</span>
+        <span class="animal-float animal-float--2">🐱</span>
+        <span class="animal-float animal-float--3">🦊</span>
+        <span class="animal-float animal-float--4">🐼</span>
+        <span class="animal-float animal-float--5">🦁</span>
+        <span class="animal-float animal-float--6">🐨</span>
+      </div>
       <header class="hero">
         <p class="category-badge category-badge--hero" aria-label="Categoría">Animales</p>
         <h1 class="title">Mundo Animal 🐾</h1>
@@ -32,6 +40,7 @@
       <header class="game-header">
         <p class="category-badge">Animales</p>
         <h2 class="game-title">Adiviná la palabra</h2>
+        <button type="button" class="btn btn--ghost btn--home" id="btn-home">Volver al inicio</button>
         <div class="errors-badge" id="attempts-label" role="status" aria-live="polite">
           <span class="errors-badge__text">Errores:</span>
           <span class="errors-badge__count" id="attempts-count">0</span>

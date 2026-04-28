@@ -40,6 +40,7 @@
   const elEndTitle = document.getElementById("end-title");
   const elEndWord = document.getElementById("end-word");
   const elBtnAgain = document.getElementById("btn-again");
+  const elBtnHome = document.getElementById("btn-home");
 
   let currentWord = "";
   let guessed = new Set();
@@ -193,6 +194,12 @@
     document.addEventListener("keydown", blockPhysicalKeyboard, true);
   }
 
+  function goHome() {
+    gameOver = true;
+    document.removeEventListener("keydown", blockPhysicalKeyboard, true);
+    showScreen(elWelcome);
+  }
+
   function winTierMessage() {
     if (wrongCount === 0) {
       return "¡Increíble! Sos un verdadero guardián de la naturaleza. 🏆";
@@ -241,4 +248,5 @@
 
   document.getElementById("btn-play").addEventListener("click", startGame);
   elBtnAgain.addEventListener("click", startGame);
+  elBtnHome.addEventListener("click", goHome);
 })();
