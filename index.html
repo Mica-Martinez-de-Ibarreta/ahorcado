@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundo Animal 🐾 — Ahorcado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 1. Bienvenida -->
+    <section id="screen-welcome" class="screen screen--active" aria-hidden="false">
+      <header class="hero">
+        <p class="category-badge category-badge--hero" aria-label="Categoría">Animales salvajes</p>
+        <h1 class="title">Mundo Animal 🐾</h1>
+        <p class="subtitle">¿Podés adivinar el animal antes de que sea demasiado tarde?</p>
+      </header>
+      <div class="card">
+        <p class="instructions">
+          Hacé clic en las letras para adivinar el nombre del animal. Tenés 6 intentos antes de perderlo en la selva.
+          ¡Buena suerte, explorador!
+        </p>
+        <button type="button" class="btn btn--primary" id="btn-play">¡Empezar expedición!</button>
+      </div>
+    </section>
+
+    <!-- 2. Juego -->
+    <section id="screen-game" class="screen" aria-hidden="true">
+      <header class="game-header">
+        <p class="category-badge">Animales salvajes</p>
+        <h2 class="game-title">Adiviná la palabra</h2>
+        <div class="errors-badge" id="attempts-label" role="status" aria-live="polite">
+          <span class="errors-badge__text">Errores:</span>
+          <span class="errors-badge__count" id="attempts-count">0</span>
+          <span class="errors-badge__max">/ 6</span>
+        </div>
+      </header>
+
+      <div class="hangman-wrap">
+        <svg class="hangman-svg" viewBox="0 0 200 240" role="img" aria-label="Dibujo del ahorcado">
+          <!-- Paso 1: horca -->
+          <g id="part-1" class="hangman-part" visibility="hidden">
+            <line x1="20" y1="220" x2="120" y2="220" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <line x1="50" y1="220" x2="50" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <line x1="48" y1="30" x2="130" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <line x1="130" y1="28" x2="130" y2="55" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          </g>
+          <!-- Paso 2: cabeza -->
+          <circle id="part-2" class="hangman-part" cx="130" cy="72" r="16" fill="none" stroke="currentColor" stroke-width="3" visibility="hidden" />
+          <!-- Paso 3: cuerpo -->
+          <line id="part-3" class="hangman-part" x1="130" y1="88" x2="130" y2="150" stroke="currentColor" stroke-width="3" stroke-linecap="round" visibility="hidden" />
+          <!-- Paso 4: brazo izquierdo -->
+          <line id="part-4" class="hangman-part" x1="130" y1="105" x2="100" y2="130" stroke="currentColor" stroke-width="3" stroke-linecap="round" visibility="hidden" />
+          <!-- Paso 5: brazo derecho -->
+          <line id="part-5" class="hangman-part" x1="130" y1="105" x2="160" y2="130" stroke="currentColor" stroke-width="3" stroke-linecap="round" visibility="hidden" />
+          <!-- Paso 6: piernas -->
+          <g id="part-6" class="hangman-part" visibility="hidden">
+            <line x1="130" y1="150" x2="105" y2="195" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <line x1="130" y1="150" x2="155" y2="195" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="word-display" id="word-display" aria-live="polite"></div>
+
+      <div class="keyboard" id="keyboard" role="group" aria-label="Teclado en pantalla"></div>
+    </section>
+
+    <!-- 3. Final -->
+    <section id="screen-end" class="screen" aria-hidden="true">
+      <div class="card card--end">
+        <h2 class="end-title" id="end-title"></h2>
+        <div id="end-word"></div>
+        <button type="button" class="btn btn--primary" id="btn-again">Buscar otro animal</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
