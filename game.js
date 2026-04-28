@@ -20,7 +20,7 @@
     "AVESTRUZ",
     "IGUANA",
     "CHIMPANCE",
-    "ALBATROS",
+  
     "ARMADILLO",
   ];
 
